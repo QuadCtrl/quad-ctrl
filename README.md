@@ -1,2 +1,5 @@
 # quad-ctrl
-Main repo
+
+<p align='center'>
+  <img src="demo.gif" />
+</p>
