@@ -18,3 +18,11 @@ On the other hand the *very* tough work is generalize and abstract the problems 
 ## Experiments
 
 We have chosen *Proximal Policy Optimization* (PPO) since, according to OpenAI, approximates the state-of-the-art while being simple to implement and to tune. Other attempts, for exemple using A2C, have shown a strong inconsistency in results and a very sensitive response to small perturbation of the hyper parameters.
+
+
+
+|          | No Noise                                 | White Noise (on all Observation vector) | Selective Noise  |
+|----------|------------------------------------------|-----------------------------------------|                  |
+| PID      | show help message and exit               |                                         |                  |
+| Hovering | allows to save time results in .csv file |                                         |                  |
+| Movement | plots the time results, from .csv files  |                                         |                  |
