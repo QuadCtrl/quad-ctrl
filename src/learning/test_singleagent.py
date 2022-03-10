@@ -46,7 +46,7 @@ def selective_noise(obs, mean=0.1, dev=0.05):
 
 
 def white_noise(obs):
-    noise = np.random.normal(0, 0.05, size=(12,))
+    noise = np.random.normal(0, 0.02, size=(12,))
     obs[:] += noise[:]
     return obs
 
@@ -61,7 +61,7 @@ if __name__ == "__main__":
     parser.add_argument('--time', default='6', type=int, help='Time to run experiment in seconds', metavar='')
     parser.add_argument('--white_noise', default='1', type=int, help='White noise on all observations, 1 active, 0 inactive', metavar='')
     parser.add_argument('--noise_mean', default='0', type=float, help='Selective noise mean', metavar='')
-    parser.add_argument('--noise_dev', default='0.1', type=float, help='Selective noise std deviation', metavar='')
+    parser.add_argument('--noise_dev', default='0.01', type=float, help='Selective noise std deviation', metavar='')
     parser.add_argument('--noise_starting_sec', default='2', type=float, help='Selective noise starting time', metavar='')
     parser.add_argument('--noise_duration', default='1', type=float, help='Selective noise duration', metavar='')
     ARGS = parser.parse_args()
@@ -134,7 +134,7 @@ if __name__ == "__main__":
                                record=False
                               )
     elif 'hover' in env_name:
-        tet_env = HoverAviary(initial_xyzs=STARTING_POINT,
+        test_env = HoverAviary(initial_xyzs=STARTING_POINT,
                                aggregate_phy_steps=shared_constants.AGGR_PHY_STEPS,
                                obs=OBS,
                                act=ACT,

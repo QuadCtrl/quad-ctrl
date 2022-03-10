@@ -10,6 +10,7 @@ pybullet = "*"
 torch = "*"
 stable-baselines3 = "*"
 tensorboard = "*"
+scipy = "*"
 
 [dev-packages]
 
