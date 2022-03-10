@@ -22,7 +22,7 @@ On the other hand the *very* tough work is generalize and abstract the problems 
 
 ## Experiments
 
-Limited by the Home PC performances, we have tried to meaningful explore the possibility for hyper parameters tuning and for the neural architecture structuring. We evaluated the performances
+Limited by the Home PC performances, we have tried to meaningful explore the possibility for hyper parameters tuning and for the neural architecture structuring. We evaluated the performances not only from the GUI feedback, but mostly based on the 
 
 ### Algorithm choice
 
