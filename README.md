@@ -6,7 +6,7 @@ Mainly we focused on Hovering and Movement:
 - **Movement**: moving the drone to a desired position. In this case the PID comparison did not provide any useful result.
 
 <p align='center'>
-  <img src="out/videos/move_rpm_1.5M_diff_start.gif" width="400" /> 
+  <img src="out/videos/move_rpm_1.5M_diff_start.gif" width="700" /> 
 </p>
 
 
