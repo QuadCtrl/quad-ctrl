@@ -22,7 +22,7 @@ On the other hand the *very* tough work is generalize and abstract the problems 
 
 ## Experiments
 
-Limited by the Home PC performances, we have tried to meaningful explore the possibility for hyper parameters tuning and for the neural architecture structuring. We evaluated the performances not only from the GUI feedback, but mostly based on the 
+Limited by the Home PC performances, we have tried to meaningful explore the possibility for hyper parameters tuning and for the neural architecture structuring. We evaluated the performances not only from the GUI feedback, but mostly basing our considerations on the final plot of states and engines during the run and the Tensorboard 
 
 ### Algorithm choice
 
@@ -30,8 +30,23 @@ We have chosen *Proximal Policy Optimization* (PPO) since, according to OpenAI, 
 
 ## Results
 
-|              | No Noise             | White Noise (on all Observation vector) | Selective Noise |
-|--------------|----------------------|-----------------------------------------|-----------------|
-| Hovering PID | :heavy_check_mark:   | :heavy_check_mark:                      | :x:             |
-| Hovering     | :heavy_check_mark:   | :heavy_check_mark:                      | :x:             |
-| Movement     | :heavy_check_mark:   | :heavy_check_mark:                      | :x:             |
+White Noise on all the state observations
+
+white_noise 1 params: mean 0, std 0.03
+
+selective noise 1 : mean 0.2, std 0.05, duration 1 sec (x,z axis)
+
+white_noise 2 params: mean 0, std 0.08
+
+selective noise 2 : mean 0.3, std 0.1, duration 1 sec (x,z axis)
+
+selective noise 3 : mean 0.6, std 0.1, duration 1 sec (x,z axis)
+
+
+
+|              | No Noise             | White Noise 1       | Selective Noise 1 | White Noise 2       | Selective Noise 2   | Selective Noise 3   |
+|--------------|----------------------|---------------------|-------------------|---------------------|---------------------|---------------------|
+| Hovering PID | :heavy_check_mark:   | :heavy_check_mark:  | :heavy_check_mark:| :heavy_check_mark:  | :heavy_check_mark:  | :heavy_check_mark:  |
+| Hovering RPM | :heavy_check_mark:   | :heavy_check_mark:* | :heavy_check_mark:| :x:                 | :heavy_check_mark:* | :heavy_check_mark:* |
+| Movement RPM | :heavy_check_mark:   | :heavy_check_mark:  | :heavy_check_mark:| :x:                 | :heavy_check_mark:  | :heavy_check_mark:* |
+(*) some difficulties
