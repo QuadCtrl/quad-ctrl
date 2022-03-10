@@ -21,8 +21,8 @@ We have chosen *Proximal Policy Optimization* (PPO) since, according to OpenAI, 
 
 
 
-|          | No Noise                                 | White Noise (on all Observation vector) | Selective Noise  |
-|----------|------------------------------------------|-----------------------------------------|                  |
-| PID      | show help message and exit               |                                         |                  |
-| Hovering | allows to save time results in .csv file |                                         |                  |
-| Movement | plots the time results, from .csv files  |                                         |                  |
+|          | No Noise                                 | White Noise (on all Observation vector) | Selective Noise      |
+|----------|------------------------------------------|-----------------------------------------|----------------------|
+| PID      | show help message and exit               |                                         |                      |
+| Hovering | allows to save time results in .csv file |                                         |                      |
+| Movement | plots the time results, from .csv files  |                                         |                      |
