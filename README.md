@@ -1,5 +1,5 @@
 # quad-ctrl
 
 <p align='center'>
-  <img src="videos/demo.gif" />
+  <img src="out/videos/demo.gif" />
 </p>
