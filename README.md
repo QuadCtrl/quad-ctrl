@@ -5,6 +5,11 @@ Mainly we focused on Hovering and Movement:
 - **Hovering**: holding the initial position. In this case we compared a drone fully controlled by the NN with a PID completely tuned using DRL.
 - **Movement**: moving the drone to a desired position. In this case the PID comparison did not provide any useful result.
 
+<p align='center'>
+  <img src="out/videos/move_rpm_1.5M_diff_start.gif" width="400" /> 
+</p>
+
+
 ## Premises and Tools
 
 We employed the physics engine PyBullet and the set of RL algorithm from Stable Baseline, starting with solid background frameworks. 
