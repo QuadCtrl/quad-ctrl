@@ -1,5 +1,3 @@
-# quad-ctrl
+# Quadcopter Controller based on Deep Reinforcement Learning
 
-<p align='center'>
-  <img src="out/videos/demo.gif" />
-</p>
+The aim of this project is using a DRL approach in order to make a 
