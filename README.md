@@ -49,4 +49,5 @@ selective noise 3 : mean 0.6, std 0.1, duration 1 sec (x,z axis)
 | Hovering PID | :heavy_check_mark:   | :heavy_check_mark:  | :heavy_check_mark:| :heavy_check_mark:  | :heavy_check_mark:  | :heavy_check_mark:  |
 | Hovering RPM | :heavy_check_mark:   | :heavy_check_mark:* | :heavy_check_mark:| :x:                 | :heavy_check_mark:* | :heavy_check_mark:* |
 | Movement RPM | :heavy_check_mark:   | :heavy_check_mark:  | :heavy_check_mark:| :x:                 | :heavy_check_mark:  | :heavy_check_mark:* |
+
 (*) some difficulties
