@@ -22,7 +22,7 @@ On the other hand the *very* tough work is generalize and abstract the problems 
 - **DRL algorithm**: PPO shows a very good trade-off between results and computing time, but also other algorithms have been tried (like A2C).
 - **Training duration and phases**: in some cases, long training times are needed before even noticing an improvement in the loss. Also hybridating different reward functions in more training phases has been beneficial.
 - **Reward function**: leading the model to achieve the desisered objective requires an heavy effort of handcrafted mathematical reward functions with many points of choices (basically NP-Hard)
-- **Network structure**: starting from an Actor-Critic paradigm, we had to choose the depth of the two networks, the width of each layer and the common netowork part between the two flows
+- **Network structure**: starting from an Actor-Critic paradigm, we had to choose the depth of the two networks, the width of each layer and the common network part between the two flows
 
 ## Experiments details
 
@@ -58,7 +58,7 @@ Empiracally trying and testing was our best tool in this case, since there is no
 
 It is worth to highlight that for the Hovering task has been adopted the same reward function both for the fully NN control and for the PID tuning. To be more precise we noticed, after many experiments, that the absolute distance on z-axis helps to force the model focusing on holding the altitude before adjusting the x-y position. This is probably due to the fact that in the interval [0,1] the squared distance (used for x-y) is below the simple abs. Some coefficients helps to balance the relevance of the tasks.
 
-For the Moving task we have chosen a combined approach of two reward functions. The first one is heavly biased on just learning to reach the correct altitude with a penalizer that prevents large drifts, the second one fine-tunes the task using a square distance on all the axis plus correcting coefficients. As before, the coefficients have been found empirically and often small changes have a dramatic impact on the overall performance. Even observing a decreasing loss value, there is a relevant number of peaks which indicates a very irregular loss shape so probabily there is a close connection with the reward definition. 
+For the Moving task we have chosen a combined approach of two reward functions. The first one is heavily biased on just learning to reach the correct altitude with a penalizer that prevents large drifts, the second one fine-tunes the task using a square distance on all the axis plus correcting coefficients. As before, the coefficients have been found empirically and often small changes have a dramatic impact on the overall performance. Even observing a decreasing loss value, there is a relevant number of peaks which indicates a very irregular loss shape so probabily there is a close connection with the reward definition. 
 
 ## Results
 
