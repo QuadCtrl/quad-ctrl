@@ -42,11 +42,12 @@ STARTING_POINT = np.array([[0, 0, 1]])
 def selective_noise(obs, mean=0.1, dev=0.05):
     noise = np.random.normal(mean, dev, size=(12,))
     obs[10] += noise[10]
+    obs[11] += noise[11]
     return obs
 
 
 def white_noise(obs):
-    noise = np.random.normal(0, 0.03, size=(12,))
+    noise = np.random.normal(0, 0.08, size=(12,))
     obs[:] += noise[:]
     return obs
 
@@ -59,11 +60,11 @@ if __name__ == "__main__":
                         help='The experiment folder written as ./results/save-<env>-<algo>-<obs>-<act>-<time_date>',
                         metavar='')
     parser.add_argument('--time', default='6', type=int, help='Time to run experiment in seconds', metavar='')
-    parser.add_argument('--white_noise', default='1', type=int, help='White noise on all observations, 1 active, 0 inactive', metavar='')
-    parser.add_argument('--noise_mean', default='0', type=float, help='Selective noise mean', metavar='')
-    parser.add_argument('--noise_dev', default='0', type=float, help='Selective noise std deviation', metavar='')
+    parser.add_argument('--white_noise', default='0', type=int, help='White noise on all observations, 1 active, 0 inactive', metavar='')
+    parser.add_argument('--noise_mean', default='0.6', type=float, help='Selective noise mean', metavar='')
+    parser.add_argument('--noise_dev', default='0.1', type=float, help='Selective noise std deviation', metavar='')
     parser.add_argument('--noise_starting_sec', default='2', type=float, help='Selective noise starting time', metavar='')
-    parser.add_argument('--noise_duration', default='0', type=float, help='Selective noise duration', metavar='')
+    parser.add_argument('--noise_duration', default='1', type=float, help='Selective noise duration', metavar='')
     ARGS = parser.parse_args()
 
 
