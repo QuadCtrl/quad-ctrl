@@ -6,7 +6,7 @@
 
 The aim of this project is using a DRL approach in order to complete two tasks with 4-engines drone.
 Mainly we focused on Hovering and Movement:
-- **Hovering**: holding the initial position. In this case we compared a drone fully controlled by the NN with a PID completely tuned using DRL.
+- **Hovering**: holding the initial position. In this case we compared a drone directly controlled by the Neural Network vs. a PID completely tuned using DRL as well.
 - **Movement**: moving the drone to a desired position. In this case the PID comparison did not provide any useful result.
 
 <p align='center'>
@@ -32,11 +32,33 @@ Limited by the Home PC performances, we have tried to meaningful explore the pos
   <img src="out/videos/no_noise/hover_pid.png" width="800" /> 
 </p>
 
-### Algorithm choice
+### Algorithm choice and training
 
 We have chosen *Proximal Policy Optimization* (PPO) since, according to OpenAI, approximates the state-of-the-art while being simple to implement and to tune. Other attempts, for exemple using A2C, have shown a strong inconsistency in results and a very sensitive response to small perturbations of the hyper parameters.
 
-### 
+In all our experiments we have trained the model for at least 600k timesteps (for the easiest task of PID tuning) and usually between 1 and 1.5 millions (for the hardest task of movement). Every episode lasts 2000 timesteps. For Movement we have also tried succesfully to train the network in more phases, employing more complex reward functions after one million steps such that the already learned patterns are refined. Some Tensorboard result from the [output folder](https://github.com/QuadCtrl/quad-ctrl/tree/main/out):
+
+<p align='center'>
+  <img src="out/images/1.1_train_loss_hover_1.4M.jpg" width="700" /> 
+</p>
+<p align='center'>
+  <img src="out/images/1.2_train_mean_reward_hover_1.4M.jpg" width="700" /> 
+</p>
+<p align='center'>
+  <img src="out/images/1.3_train_value_loss_hover_1.4M.jpg" width="700" /> 
+</p>
+
+### Network hyper paramter & settings
+
+The two networks for Actor-Critic in PPO share the same Optimizer ADAM with a learning rate of 0.0003; this choice of an adaptive optimizer is quite forced by the unknow and complex loss landscape made by handcrafted reward functions. The first two layers, in common, are Dense of 128 nodes. The Critic head has always been kept as one dense layer 256 for all the experiments. The Actor head are Denses 128-256 for the Hovering tasks and just 256 for Moving task: one more 128-nodes layer enhances the model capacity but makes the training harder, so is not suitable for the long training sessions required by Moving.
+
+Empiracally trying and testing was our best tool in this case, since there is no a clear heuristic to define the NN architectures. Deeper networks have been stuck generally to higher loss values while passing to 512 nodes Dense slows down drastically the training and requires many timesteps before showing relevant improvements. A trade-off was the key.
+
+### Reward function
+
+It is worth to highlight that for the Hovering task has been adopted the same reward function both for the fully NN control and for the PID tuning. To be more precise we noticed, after many experiments, that the absolute distance on z-axis helps to force the model focusing on holding the altitude before adjusting the x-y position. This is probably due to the fact that in the interval [0,1] the squared distance (used for x-y) is below the simple abs. Some coefficients helps to balance the relevance of the tasks.
+
+For the Moving task we have chosen a combined approach of two reward functions. The first one is heavly biased on just learning to reach the correct altitude with a penalizer that prevents 
 
 ## Results
 
