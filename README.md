@@ -48,7 +48,7 @@ In all our experiments we have trained the model for at least 600k timesteps (fo
   <img src="out/images/1.3_train_value_loss_hover_1.4M.jpg" width="700" /> 
 </p>
 
-### Network hyper paramter & settings
+### Network hyperparameters & settings
 
 The two networks for Actor-Critic in PPO share the same Optimizer ADAM with a learning rate of 0.0003; this choice of an adaptive optimizer is quite forced by the unknow and complex loss landscape made by handcrafted reward functions. The first two layers, in common, are Dense of 128 nodes. The Critic head has always been kept as one dense layer 256 for all the experiments. The Actor head are Denses 128-256 for the Hovering tasks and just 256 for Moving task: one more 128-nodes layer enhances the model capacity but makes the training harder, so is not suitable for the long training sessions required by Moving.
 
