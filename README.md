@@ -24,7 +24,7 @@ On the other hand the *very* tough work is generalize and abstract the problems 
 - **Reward function**: leading the model to achieve the desisered objective requires an heavy effort of handcrafted mathematical reward functions with many points of choices (basically NP-Hard)
 - **Network structure**: starting from an Actor-Critic paradigm, we had to choose the depth of the two networks, the width of each layer and the common netowork part between the two flows
 
-## Experiments
+## Experiments details
 
 Limited by the Home PC performances, we have tried to meaningful explore the possibility for hyper parameters tuning and for the neural architecture structuring. We evaluated the performances not only from the GUI feedback, but mostly basing our considerations on the final plot of states and engines during the run and the Tensorboard training graphs. All the outputs can be found in [output folder](https://github.com/QuadCtrl/quad-ctrl/tree/main/out) (to be finished).
 
@@ -36,7 +36,7 @@ Limited by the Home PC performances, we have tried to meaningful explore the pos
 
 We have chosen *Proximal Policy Optimization* (PPO) since, according to OpenAI, approximates the state-of-the-art while being simple to implement and to tune. Other attempts, for exemple using A2C, have shown a strong inconsistency in results and a very sensitive response to small perturbations of the hyper parameters.
 
-In all our experiments we have trained the model for at least 600k timesteps (for the easiest task of PID tuning) and usually between 1 and 1.5 millions (for the hardest task of movement). Every episode lasts 2000 timesteps. For Movement we have also tried succesfully to train the network in more phases, employing more complex reward functions after one million steps such that the already learned patterns are refined. Some Tensorboard result from the [output folder](https://github.com/QuadCtrl/quad-ctrl/tree/main/out):
+In all our experiments we have trained the model for at least 600k timesteps (for the easiest task of PID tuning) and usually between 1 and 1.5 millions (for the hardest task of movement). Every episode lasts 2000 timesteps. For Movement we have also tried succesfully to train the network in more phases, employing more complex reward functions after one million steps such that the already learned patterns are refined. Some Tensorboard results from the [output folder](https://github.com/QuadCtrl/quad-ctrl/tree/main/out):
 
 <p align='center'>
   <img src="out/images/1.1_train_loss_hover_1.4M.jpg" width="700" /> 
@@ -58,22 +58,16 @@ Empiracally trying and testing was our best tool in this case, since there is no
 
 It is worth to highlight that for the Hovering task has been adopted the same reward function both for the fully NN control and for the PID tuning. To be more precise we noticed, after many experiments, that the absolute distance on z-axis helps to force the model focusing on holding the altitude before adjusting the x-y position. This is probably due to the fact that in the interval [0,1] the squared distance (used for x-y) is below the simple abs. Some coefficients helps to balance the relevance of the tasks.
 
-For the Moving task we have chosen a combined approach of two reward functions. The first one is heavly biased on just learning to reach the correct altitude with a penalizer that prevents 
+For the Moving task we have chosen a combined approach of two reward functions. The first one is heavly biased on just learning to reach the correct altitude with a penalizer that prevents large drifts, the second one fine-tunes the task using a square distance on all the axis plus correcting coefficients. As before, the coefficients have been found empirically and often small changes have a dramatic impact on the overall performance. Even observing a decreasing loss value, there is a relevant number of peaks which indicates a very irregular loss shape so probabily there is a close connection with the reward definition. 
 
 ## Results
 
-White Noise on all the state observations
-
-white_noise 1 params: mean 0, std 0.03
-
-selective noise 1 : mean 0.2, std 0.05, duration 1 sec (x,z axis)
-
-white_noise 2 params: mean 0, std 0.08
-
-selective noise 2 : mean 0.3, std 0.1, duration 1 sec (x,z axis)
-
-selective noise 3 : mean 0.6, std 0.1, duration 1 sec (x,z axis)
-
+In order to reproduce a more realistic environment, we have also decided to introduce two kind of noise at testing time: a classical white noise and an impulsive perturbation. The white noise affects the entire drone state (position, roll/pitch/yaw, angular velocity, linear velocity) and is obtained from a normal distribution with zero-mean. The impulsive perturbation is applied for a short time but represents an heavy external push to the drone; it's still obtained from a normal distribution but with a large mean. 
+1. **white noise 1**: std = 0.03.
+2. **impulsive noise 1**: mean = 0.2, std = 0.05, 1 second.
+3. **white noise 2**: std = 0.08.
+4. **impulsive noise 2**: mean = 0.3, std = 0.1, 1 second.
+5. **impulsive noise 3**: mean = 0.6, std = 0.1, 1 second.
 
 
 |              | No Noise             | White Noise 1       | Selective Noise 1 | White Noise 2       | Selective Noise 2   | Selective Noise 3   |
@@ -82,4 +76,10 @@ selective noise 3 : mean 0.6, std 0.1, duration 1 sec (x,z axis)
 | Hovering RPM | :heavy_check_mark:   | :heavy_check_mark:* | :heavy_check_mark:| :x:                 | :heavy_check_mark:* | :heavy_check_mark:* |
 | Movement RPM | :heavy_check_mark:   | :heavy_check_mark:  | :heavy_check_mark:| :x:                 | :heavy_check_mark:  | :heavy_check_mark:* |
 
-(*) some difficulties
+(\*) some difficulties
+
+As we can see, the model is robust to limited perturbations in time or intensity but the full-DRL controlled drone does not compensate a persistent noise of high magnitude. The PID Controller is clearly the winner and maybe is even quite intuitive that an hybrid approach between Control Theory and AI is the smartest choice. It relies on both the advantages of a strong domain knowledge and the great Deep Learning power of overcoming the human limits in finding a perfect tuning (in just one hour!). 
+
+## Authors
+* [**Alessandro Maggio**](alessandro.maggio5@studio.unibo.it)
+* [**Serban Cristian Tudosie**](serban.tudosie@studio.unibo.it)
