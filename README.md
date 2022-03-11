@@ -22,7 +22,11 @@ On the other hand the *very* tough work is generalize and abstract the problems 
 
 ## Experiments
 
-Limited by the Home PC performances, we have tried to meaningful explore the possibility for hyper parameters tuning and for the neural architecture structuring. We evaluated the performances not only from the GUI feedback, but mostly basing our considerations on the final plot of states and engines during the run and the Tensorboard 
+Limited by the Home PC performances, we have tried to meaningful explore the possibility for hyper parameters tuning and for the neural architecture structuring. We evaluated the performances not only from the GUI feedback, but mostly basing our considerations on the final plot of states and engines during the run and the Tensorboard training graphs.
+
+<p align='center'>
+  <img src="out/videos/no_noise/hover_pid.png" width="700" /> 
+</p>
 
 ### Algorithm choice
 
