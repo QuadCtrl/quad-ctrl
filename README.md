@@ -39,13 +39,13 @@ We have chosen *Proximal Policy Optimization* (PPO) since, according to OpenAI, 
 In all our experiments we have trained the model for at least 600k timesteps (for the easiest task of PID tuning) and usually between 1 and 1.5 millions (for the hardest task of movement). Every episode lasts 2000 timesteps. For Movement we have also tried succesfully to train the network in more phases, employing more complex reward functions after one million steps such that the already learned patterns are refined. Some Tensorboard results from the [output folder](https://github.com/QuadCtrl/quad-ctrl/tree/main/out):
 
 <p align='center'>
-  <img src="out/images/1.1_train_loss_hover_1.4M.jpg" width="700" /> 
+  <img src="out/images/1.1_train_loss_hover_1.4M.jpg" width="800" /> 
 </p>
 <p align='center'>
-  <img src="out/images/1.2_train_mean_reward_hover_1.4M.jpg" width="700" /> 
+  <img src="out/images/1.2_train_mean_reward_hover_1.4M.jpg" width="800" /> 
 </p>
 <p align='center'>
-  <img src="out/images/1.3_train_value_loss_hover_1.4M.jpg" width="700" /> 
+  <img src="out/images/1.3_train_value_loss_hover_1.4M.jpg" width="800" /> 
 </p>
 
 ### Network hyperparameters & settings
