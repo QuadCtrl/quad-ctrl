@@ -16,7 +16,7 @@ Mainly we focused on Hovering and Movement:
 
 ## Premises and Tools
 
-We employed the physics engine PyBullet and the set of RL algorithm from Stable Baseline, starting with solid background frameworks. 
+We employed the physics engine [PyBullet](https://pybullet.org/wordpress/) and the set of RL algorithm from Stable Baseline, starting with solid background frameworks. 
 Our target is showing that even a complex phisics system can be controlled in a fully **model-free** way, getting rid of the expert. Also if the code has to be deployed on a micro-controller, not able to run a Neural Network, the DRL approach provides the means to tune a PID without Control Theory knowledge. 
 On the other hand the *very* tough work is generalize and abstract the problems without any domain prior. Finding the right combination of:
 - **DRL algorithm**: PPO shows a very good trade-off between results and computing time, but also other algorithms have been tried (like A2C).
