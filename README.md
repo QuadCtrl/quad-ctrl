@@ -34,7 +34,9 @@ Limited by the Home PC performances, we have tried to meaningful explore the pos
 
 ### Algorithm choice
 
-We have chosen *Proximal Policy Optimization* (PPO) since, according to OpenAI, approximates the state-of-the-art while being simple to implement and to tune. Other attempts, for exemple using A2C, have shown a strong inconsistency in results and a very sensitive response to small perturbation of the hyper parameters.
+We have chosen *Proximal Policy Optimization* (PPO) since, according to OpenAI, approximates the state-of-the-art while being simple to implement and to tune. Other attempts, for exemple using A2C, have shown a strong inconsistency in results and a very sensitive response to small perturbations of the hyper parameters.
+
+### 
 
 ## Results
 
