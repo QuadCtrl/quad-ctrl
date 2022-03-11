@@ -1,3 +1,5 @@
+![](/out/images/logo_large.png)
+  
 # Quadcopter Controller based on Deep Reinforcement Learning
 
 The aim of this project is using a DRL approach in order to complete two tasks with 4-engines drone.
