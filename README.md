@@ -1,5 +1,7 @@
-![](/out/images/logo_large.png)
-  
+<p align='center'>
+  <img src="/out/images/logo_large.png" width="600">
+</p>
+
 # Quadcopter Controller based on Deep Reinforcement Learning
 
 The aim of this project is using a DRL approach in order to complete two tasks with 4-engines drone.
