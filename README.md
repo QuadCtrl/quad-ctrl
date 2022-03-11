@@ -29,7 +29,7 @@ On the other hand the *very* tough work is generalize and abstract the problems 
 Limited by the Home PC performances, we have tried to meaningful explore the possibility for hyper parameters tuning and for the neural architecture structuring. We evaluated the performances not only from the GUI feedback, but mostly basing our considerations on the final plot of states and engines during the run and the Tensorboard training graphs. All the outputs can be found in [output folder](https://github.com/QuadCtrl/quad-ctrl/tree/main/out) (to be finished).
 
 <p align='center'>
-  <img src="out/videos/no_noise/hover_pid.png" width="700" /> 
+  <img src="out/videos/no_noise/hover_pid.png" width="800" /> 
 </p>
 
 ### Algorithm choice
