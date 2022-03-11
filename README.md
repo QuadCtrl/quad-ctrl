@@ -70,7 +70,7 @@ In order to reproduce a more realistic environment, we have also decided to intr
 5. **impulsive noise 3**: mean = 0.6, std = 0.1, 1 second.
 
 
-|              | No Noise             | White Noise 1       | Selective Noise 1 | White Noise 2       | Selective Noise 2   | Selective Noise 3   |
+|              | No Noise             | White Noise 1       | Impulsive Noise 1 | White Noise 2       | Impulsive Noise 2   | Impulsive Noise 3   |
 |--------------|----------------------|---------------------|-------------------|---------------------|---------------------|---------------------|
 | Hovering PID | :heavy_check_mark:   | :heavy_check_mark:  | :heavy_check_mark:| :heavy_check_mark:  | :heavy_check_mark:  | :heavy_check_mark:  |
 | Hovering RPM | :heavy_check_mark:   | :heavy_check_mark:* | :heavy_check_mark:| :x:                 | :heavy_check_mark:* | :heavy_check_mark:* |
