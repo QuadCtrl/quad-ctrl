@@ -37,7 +37,8 @@ from gym_pybullet_drones.envs.single_agent_rl.BaseSingleAgentAviary import Actio
 
 import shared_constants
 
-STARTING_POINT = np.array([[0, 0, 1]])
+STARTING_POINT = np.array([[0, 0, 1.2]])
+
 
 def selective_noise(obs, mean=0.1, dev=0.05):
     noise = np.random.normal(mean, dev, size=(12,))
@@ -60,13 +61,14 @@ if __name__ == "__main__":
                         help='The experiment folder written as ./results/save-<env>-<algo>-<obs>-<act>-<time_date>',
                         metavar='')
     parser.add_argument('--time', default='6', type=int, help='Time to run experiment in seconds', metavar='')
-    parser.add_argument('--white_noise', default='1', type=int, help='White noise on all observations, 1 active, 0 inactive', metavar='')
+    parser.add_argument('--white_noise', default='0', type=int,
+                        help='White noise on all observations, 1 active, 0 inactive', metavar='')
     parser.add_argument('--noise_mean', default='0.6', type=float, help='Selective noise mean', metavar='')
     parser.add_argument('--noise_dev', default='0.1', type=float, help='Selective noise std deviation', metavar='')
-    parser.add_argument('--noise_starting_sec', default='2', type=float, help='Selective noise starting time', metavar='')
+    parser.add_argument('--noise_starting_sec', default='2', type=float, help='Selective noise starting time',
+                        metavar='')
     parser.add_argument('--noise_duration', default='0', type=float, help='Selective noise duration', metavar='')
     ARGS = parser.parse_args()
-
 
     #### Load the model from file ##############################
     algo = ARGS.exp.split("-")[2]
@@ -110,9 +112,9 @@ if __name__ == "__main__":
     #### Evaluate the model ####################################
     if 'move' in env_name:
         eval_env = MoveAviary(initial_xyzs=STARTING_POINT,
-                               aggregate_phy_steps=shared_constants.AGGR_PHY_STEPS,
-                               obs=OBS,
-                               act=ACT)
+                              aggregate_phy_steps=shared_constants.AGGR_PHY_STEPS,
+                              obs=OBS,
+                              act=ACT)
     elif 'hover' in env_name:
         eval_env = HoverAviary(initial_xyzs=STARTING_POINT,
                                aggregate_phy_steps=shared_constants.AGGR_PHY_STEPS,
@@ -128,11 +130,11 @@ if __name__ == "__main__":
     #### Show, record a video, and log the model's performance ####
     if 'move' in env_name:
         test_env = MoveAviary(initial_xyzs=STARTING_POINT,
-                               aggregate_phy_steps=shared_constants.AGGR_PHY_STEPS,
-                               obs=OBS,
-                               act=ACT,
-                               gui=True,
-                               record=True
+                              aggregate_phy_steps=shared_constants.AGGR_PHY_STEPS,
+                              obs=OBS,
+                              act=ACT,
+                              gui=True,
+                              record=True
                               )
     elif 'hover' in env_name:
         test_env = HoverAviary(initial_xyzs=STARTING_POINT,

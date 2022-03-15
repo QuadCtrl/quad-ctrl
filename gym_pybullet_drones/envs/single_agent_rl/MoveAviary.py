@@ -14,7 +14,7 @@ class MoveAviary(BaseSingleAgentAviary):
     def __init__(self,
                  drone_model: DroneModel = DroneModel.CF2X,
                  initial_xyzs=None,
-                 initial_rpys=None,
+                 initial_rpys=np.array([[0, 0, 0]]),
                  physics: Physics = Physics.PYB,
                  reward_type: int = 1,
                  freq: int = 240,
@@ -69,9 +69,6 @@ class MoveAviary(BaseSingleAgentAviary):
     ################################################################################
     def _reward_w_penalty(self):
         state = self._getDroneStateVector(0)
-
-        # Normalized state works worse by empirical results
-        # state = self._clipAndNormalizeState(state)
 
         penalty_z = 0
         if (1.4 - state[2]) < 0:

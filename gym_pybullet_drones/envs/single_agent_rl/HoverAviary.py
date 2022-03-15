@@ -14,7 +14,7 @@ class HoverAviary(BaseSingleAgentAviary):
     def __init__(self,
                  drone_model: DroneModel = DroneModel.CF2X,
                  initial_xyzs=np.array([[0, 0, 1]]),
-                 initial_rpys=None,
+                 initial_rpys=np.array([[0, 0, 0]]),
                  physics: Physics = Physics.PYB,
                  reward_type: int = 0,
                  freq: int = 240,
@@ -70,8 +70,7 @@ class HoverAviary(BaseSingleAgentAviary):
     def _reward_standard(self):
         ############ Hovering 22.23.12 unormalized ######################
         state = self._getDroneStateVector(0)
-        norm_state = self._clipAndNormalizeState(state)
-        penalty = 0
+        # norm_state = self._clipAndNormalizeState(state)
         dist_z = 0.9 * (abs(1 - state[2]))
         dist_x = 0.1 * ((0 - state[0]) ** 2)
         dist_y = 0.1 * ((0 - state[1]) ** 2)

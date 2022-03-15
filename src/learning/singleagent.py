@@ -131,7 +131,7 @@ if __name__ == "__main__":
 
     #### Off-policy algorithms #################################
     offpolicy_kwargs = dict(activation_fn=torch.nn.ReLU,
-                            net_arch=[512, 512, 256, 128]
+                            net_arch=[128, 128, 128, 256]
                             )  # or None # or dict(net_arch=dict(qf=[256, 128, 64, 32], pi=[256, 128, 64, 32]))
     if ARGS.algo == 'sac':
         model = SAC(sacMlpPolicy,
@@ -192,7 +192,7 @@ if __name__ == "__main__":
             model = SAC.load(path_prev_train)
         model.set_env(eval_env)
 
-    model.learn(total_timesteps=500000,  # int(1e12),
+    model.learn(total_timesteps=600000,  # int(1e12),
                 callback=eval_callback,
                 log_interval=100,
                 )
