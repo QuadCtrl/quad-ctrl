@@ -62,7 +62,7 @@ For the Moving task we have chosen a combined approach of two reward functions. 
 
 ## Results
 
-In order to reproduce a more realistic environment, we have also decided to introduce two kind of noise at testing time: a classical white noise and an impulsive perturbation. The white noise affects the entire drone state (position, roll/pitch/yaw, angular velocity, linear velocity) and is obtained from a normal distribution with zero-mean. The impulsive perturbation is applied for a short time but represents an heavy external push to the drone along the x and z axes; it's still obtained from a normal distribution but with a large mean. 
+In order to reproduce a more realistic environment, we have also decided to introduce two kind of noise at testing time: a classical white noise and an impulsive perturbation. The white noise affects the entire drone state (position, roll/pitch/yaw, angular velocity, linear velocity) and is obtained from a normal distribution with zero-mean. The impulsive perturbation is applied for a short time but represents an heavy external push to the drone along the y and z axes; it's still obtained from a normal distribution but with a large mean. 
 1. **white noise 1**: std = 0.03.
 2. **impulsive noise 1**: mean = 0.2, std = 0.05, 1 second.
 3. **white noise 2**: std = 0.08.
