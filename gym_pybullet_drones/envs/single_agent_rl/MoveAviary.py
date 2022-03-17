@@ -74,9 +74,9 @@ class MoveAviary(BaseSingleAgentAviary):
         if (1.4 - state[2]) < 0:
             penalty_z = np.abs(1.4 - state[2]) / 4
 
-        dist_x = ((0 - state[0]) ** 2 - penalty_z)
+        dist_x = (0 - state[0]) ** 2
         dist_y = (0 - state[1]) ** 2
-        dist_z = (1.2 - state[2]) ** 2
+        dist_z = (1.2 - state[2]) ** 2 - penalty_z
 
         r = -(0.9 * dist_z + 0.05 * dist_x + 0.05 * dist_y)
         return r

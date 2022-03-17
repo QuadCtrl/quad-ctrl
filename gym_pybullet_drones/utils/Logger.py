@@ -52,7 +52,7 @@ class Logger(object):
                                                                                                   # roll,
                                                                                                   # pitch,
                                                                                                   # yaw,
-                                                                                                  # ang_vel_x,
+                                                                                                      # ang_vel_x,
                                                                                                   # ang_vel_y,
                                                                                                   # ang_vel_z,
                                                                                                   # rpm0,
