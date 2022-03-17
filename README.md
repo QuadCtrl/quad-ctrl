@@ -78,7 +78,7 @@ In order to reproduce a more realistic environment, we have also decided to intr
 
 (\*) some difficulties
 
-As we can see, the model is robust to limited perturbations in time or intensity but the full-DRL controlled drone does not compensate a persistent high magnitude noise. The PID Controller is clearly the winner and maybe is even quite intuitive that an hybrid approach between Control Theory and AI is the smartest choice. It relies on both the advantages of a strong domain knowledge and the great Deep Learning power of overcoming the human limits in finding a perfect tuning (in just one hour training!). 
+As we can see, the model is robust to limited perturbations in time or intensity but the full-DRL controlled drone does not compensate a persistent high magnitude noise. The PID Controller is clearly the winner and maybe is even quite intuitive that a hybrid approach between Control Theory and AI is the smartest choice. It relies on both the advantages of a strong domain knowledge and the great Deep Learning power of overcoming the human limits in finding a perfect tuning (in just one hour training!). 
 
 ## Authors
 * [**Alessandro Maggio**](alessandro.maggio5@studio.unibo.it)
